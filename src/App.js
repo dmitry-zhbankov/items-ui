@@ -5,16 +5,12 @@ import React from "react";
 
 const list = [
   {
-    id: 'a',
-    firstname: 'Robin',
-    lastname: 'Wieruch',
-    year: 1988,
+    id: 1,
+    name: 'Robin'
   },
   {
-    id: 'b',
-    firstname: 'Dave',
-    lastname: 'Davidds',
-    year: 1990,
+    id: 2,
+    name: 'Dave'
   },
 ];
 

@@ -1,16 +1,16 @@
 import React from 'react';
 
-const List = ({list}) => (
-  <ul>
-    {list.map(item => (
-      <li key={item.id}>
-        <div>{item.id}</div>
-        <div>{item.firstname}</div>
-        <div>{item.lastname}</div>
-        <div>{item.year}</div>
-      </li>
-    ))}
-  </ul>
-);
+const List = ({list}) => {
+  return (
+    <table>
+      {list.map(item => (
+        <tr key={item.id.toString()}>
+          <td>{item.id}</td>
+          <td>{item.name}</td>
+        </tr>
+      ))}
+    </table>
+  );
+}
 
 export default List;
