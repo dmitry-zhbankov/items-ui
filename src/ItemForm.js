@@ -5,14 +5,32 @@ import Button from "react-bootstrap/Button";
 class ItemForm extends React.Component {
   constructor(props) {
     super(props);
+    this.handleSave = this.handleSave.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
+    this.state = {
+      id: props.editItem?.id,
+      name: props.editItem?.name
+    };
+  }
+
+  componentWillReceiveProps(nextProps, state) {
+    this.setState({
+      id: nextProps.editItem?.id,
+      name: nextProps.editItem?.name
+    });
   }
 
   handleSave() {
-    this.props.onSave();
+    this.props.onSave(this.state);
   }
 
   handleClose() {
     this.props.onClose();
+  }
+
+  handleNameChange(e) {
+    this.setState({name: e.target.value})
   }
 
   render() {
@@ -28,27 +46,22 @@ class ItemForm extends React.Component {
             <label>
               Id
             </label>
-            <input name="id" readOnly={true} value={this.props.editItem?.id}/>
+            <input readOnly={true} value={this.state.id}/>
           </div>
           <div>
             <label>
               Name
             </label>
-            <input name="name" value={this.props.editItem?.name}/>
+            <input value={this.state.name} onChange={this.handleNameChange}/>
           </div>
-          <button>Submit</button>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="primary"
-                  onClick={() => {
-                    this.handleSave();
-                  }}>
+                  onClick={this.handleSave}>
             Save Changes
           </Button>
           <Button variant="secondary"
-                  onClick={() => {
-                    this.handleClose();
-                  }}>
+                  onClick={this.handleClose}>
             Close
           </Button>
         </Modal.Footer>

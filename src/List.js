@@ -12,6 +12,8 @@ class List extends React.Component {
   constructor(props) {
     super(props);
     this.state = new ListViewModel();
+    this.onSave = this.onSave.bind(this);
+    this.onClose = this.onClose.bind(this);
   }
 
   async componentDidMount() {
@@ -40,20 +42,20 @@ class List extends React.Component {
   }
 
   async onClose() {
-    await Repository.getAllItems().then(value => {
-      this.setState(new ListViewModel(value, false))
-    });
+    this.setState({...this.state, showEditDialog: false});
+    let items = await Repository.getAllItems();
+    this.setState(new ListViewModel(items))
   }
 
   async onSave(item) {
+    this.setState({...this.state, showEditDialog: false});
     if (item.id == null) {
       await Repository.createItem(item);
     } else {
       await Repository.editItem(item);
     }
-    await Repository.getAllItems().then(value => {
-      this.setState(new ListViewModel(value, false))
-    });
+    let items = await Repository.getAllItems();
+    this.setState(new ListViewModel(items, false))
   }
 
   render() {
@@ -61,12 +63,8 @@ class List extends React.Component {
       <div>
         <ItemForm show={this.state.showEditDialog}
                   editItem={this.state.editItem}
-                  onSave={async () => {
-                    await this.onSave()
-                  }}
-                  onClose={async () => {
-                    await this.onClose()
-                  }}/>
+                  onSave={this.onSave}
+                  onClose={this.onClose}/>
         <Container fluid>
           <Row>
             <Col>
