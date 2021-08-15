@@ -10,7 +10,17 @@ const Repository = function () {
     removeItemById: function (id) {
       return fetch(`${Constants.serviceUrl}/${id}`,
         {method: 'Delete'});
-    }
+    },
+    editItem: function (item) {
+      return fetch(Constants.serviceUrl,
+        {method: 'Patch',
+        body:JSON.stringify(item)});
+    },
+    createItem: function (item) {
+      return fetch(Constants.serviceUrl,
+        {method: 'Post',
+        body:JSON.stringify(item)});
+    },
   }
 }();
 
