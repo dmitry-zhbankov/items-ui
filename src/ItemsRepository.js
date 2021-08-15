@@ -4,17 +4,17 @@ const Repository = function () {
   return {
     getAllItems: function () {
       return fetch(Constants.serviceUrl,
-        {method: 'Get'})
+        {method: "GET"})
         .then(res => res.json());
     },
     removeItemById: function (id) {
       return fetch(`${Constants.serviceUrl}/${id}`,
-        {method: 'Delete'});
+        {method: "DELETE"});
     },
     editItem: function (item) {
       return fetch(Constants.serviceUrl,
         {
-          method: 'Patch',
+          method: "PATCH",
           headers: {
             'Content-Type': 'application/json'
           },
@@ -24,7 +24,7 @@ const Repository = function () {
     createItem: function (item) {
       return fetch(Constants.serviceUrl,
         {
-          method: 'Post',
+          method: "POST",
           headers: {
             'Content-Type': 'application/json'
           },
