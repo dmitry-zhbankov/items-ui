@@ -6,6 +6,10 @@ const Repository = function () {
       return fetch(Constants.serviceUrl,
         {method: 'Get'})
         .then(res => res.json());
+    },
+    removeItemById: function (id) {
+      return fetch(`${Constants.serviceUrl}/${id}`,
+        {method: 'Delete'});
     }
   }
 }();

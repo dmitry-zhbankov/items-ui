@@ -3,20 +3,21 @@ import './App.css';
 import List from "./List";
 import React from "react";
 
-const list = [
-  {
-    id: 1,
-    name: 'Robin'
-  },
-  {
-    id: 2,
-    name: 'Dave'
-  },
-];
 
 function App() {
+  const [items, setItems] = React.useState([
+    {
+      id: 1,
+      name: 'Robin'
+    },
+    {
+      id: 2,
+      name: 'Dave'
+    },
+  ]);
+
   return (
-    <List list={list}/>
+    <List items={items} setItems={setItems}/>
   );
 }
 
