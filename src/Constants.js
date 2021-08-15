@@ -1,6 +1,6 @@
 const Constants = function () {
   return {
-    "serviceUrl": "http://3.143.23.25/items"
+    "serviceUrl": "http://3.138.122.85/items"
   }
 }();
 
