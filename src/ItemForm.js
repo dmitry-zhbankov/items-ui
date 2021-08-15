@@ -1,6 +1,9 @@
 import React from 'react';
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form"
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 
 class ItemForm extends React.Component {
   constructor(props) {
@@ -39,21 +42,29 @@ class ItemForm extends React.Component {
     return (
       <Modal show={this.props.show}>
         <Modal.Header>
-          {modalTitle}
+          <Modal.Title>
+            {modalTitle}
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div>
-            <label>
-              Id
-            </label>
-            <input readOnly={true} value={this.state.id}/>
-          </div>
-          <div>
-            <label>
-              Name
-            </label>
-            <input value={this.state.name} onChange={this.handleNameChange}/>
-          </div>
+          <Form>
+            <Form.Group as={Row} className="mb-3">
+              <Form.Label column sm="2">
+                Id
+              </Form.Label>
+              <Col sm="10">
+                <Form.Control type="text" readOnly value={this.state.id}/>
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row} className="mb-3">
+              <Form.Label column sm="2">
+                Name
+              </Form.Label>
+              <Col sm="10">
+                <Form.Control type="text" value={this.state.name} onChange={this.handleNameChange}/>
+              </Col>
+            </Form.Group>
+          </Form>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="primary"
