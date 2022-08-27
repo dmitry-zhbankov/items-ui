@@ -63,7 +63,7 @@
     }
   ],
   "placementConstraints": [],
-  "memory": "2048",
+  "memory": "4096",
   "taskRoleArn": null,
   "compatibilities": [
     "EC2",
@@ -121,8 +121,8 @@
   ],
   "networkMode": "awsvpc",
   "runtimePlatform": null,
-  "cpu": "1024",
-  "revision": 1,
+  "cpu": "2048",
+  "revision": 7,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
