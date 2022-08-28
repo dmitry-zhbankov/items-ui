@@ -69,7 +69,7 @@
     "EC2",
     "FARGATE"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-2:770821692984:task-definition/items-ui-task-defenition:7",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-2:770821692984:task-definition/items-ui-task-defenition:20",
   "family": "items-ui-task-defenition",
   "requiresAttributes": [
     {
@@ -122,7 +122,7 @@
   "networkMode": "awsvpc",
   "runtimePlatform": null,
   "cpu": "2048",
-  "revision": 7,
+  "revision": 20,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
