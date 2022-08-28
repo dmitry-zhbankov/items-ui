@@ -17,7 +17,7 @@ const ItemForm = ({show, editItem, onSave, onClose}: ItemFormProps) => {
     const [id, setId] = useState<number>();
     const [name, setName] = useState<string>();
 
-    const modalTitle = editItem?.id ? "Create new item" : "Edit item";
+    const modalTitle = editItem?.id ? "Edit item" : "Create new item";
 
     useEffect(() => {
         setId(editItem?.id);
@@ -50,7 +50,7 @@ const ItemForm = ({show, editItem, onSave, onClose}: ItemFormProps) => {
                             Id
                         </Form.Label>
                         <Col sm="10">
-                            <Form.Control type="text" readOnly value={id}/>
+                            <Form.Control type="text" readOnly value={id ?? ""}/>
                         </Col>
                     </Form.Group>
                     <Form.Group as={Row} className="mb-3">
@@ -58,7 +58,7 @@ const ItemForm = ({show, editItem, onSave, onClose}: ItemFormProps) => {
                             Name
                         </Form.Label>
                         <Col sm="10">
-                            <Form.Control type="text" value={name} onChange={handleNameChange}/>
+                            <Form.Control type="text" value={name ?? ""} onChange={handleNameChange}/>
                         </Col>
                     </Form.Group>
                 </Form>
