@@ -3,7 +3,7 @@ interface IConstants {
 }
 
 const Constants: IConstants = {
-    serviceUrl: "http://3.138.122.85/items"
+    serviceUrl: "http://items-api-load-balancer-829007839.us-east-2.elb.amazonaws.com/items"
 };
 
 
