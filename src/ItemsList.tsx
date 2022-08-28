@@ -64,16 +64,16 @@ const ItemsList = () => {
             <Container fluid>
                 <Row>
                     <Col>
-                        <Button variant="primary" size="lg" onClick={() => {
+                        <Button variant="primary" onClick={() => {
                             onCreateNewItem()
                         }}>
-                            Create new item
+                            Create
                         </Button>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        <Table size="sm" bordered={true} striped="true" borderless={false} hover={true}>
+                        <Table size="sm" bordered={true} striped="true" hover={true}>
                             <thead>
                             <tr>
                                 <th>Id</th>
@@ -87,16 +87,18 @@ const ItemsList = () => {
                                 <tr key={item.id.toString()}>
                                     <td>{item.id}</td>
                                     <td>{item.name}</td>
-                                    <td>
+                                    <td align={"center"}>
                                         <Button variant="primary"
+                                                size="sm"
                                                 onClick={() => {
                                                     onEditItem(item)
                                                 }}>
                                             Edit
                                         </Button>
                                     </td>
-                                    <td>
+                                    <td align={"center"}>
                                         <Button variant="danger"
+                                                size="sm"
                                                 onClick={() => {
                                                     onRemoveItem(item.id)
                                                 }}>
