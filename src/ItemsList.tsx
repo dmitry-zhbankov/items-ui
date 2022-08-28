@@ -31,6 +31,7 @@ const ItemsList = () => {
     }
 
     function onCreateNewItem() {
+        setEditItem({} as Item);
         setShowEditDialog(true);
     }
 
